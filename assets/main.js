@@ -5,8 +5,8 @@
    email:    dirección de correo
    ------------------------------------------------------------------ */
 const CONTACT = {
-  whatsapp: "",
-  phone: "",
+  whatsapp: "34622614641",
+  phone: "+34 622 61 46 41",
   email: ""
 };
 
@@ -40,7 +40,7 @@ function applyContact() {
     }
   });
   document.querySelectorAll("[data-wa-text]").forEach((el) => {
-    if (CONTACT.whatsapp) el.textContent = `+${CONTACT.whatsapp}`;
+    if (CONTACT.whatsapp) el.textContent = CONTACT.phone || `+${CONTACT.whatsapp}`;
   });
 }
 
