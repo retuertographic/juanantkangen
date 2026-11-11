@@ -18,3 +18,8 @@ Si es la primera vez, en *Settings → Pages* elige **Source: GitHub Actions**.
 ## Líneas rojas de contenido
 
 Nada de promesas de salud ni de ingresos, ni datos inventados. El aviso legal del pie es obligatorio.
+
+## Dominio
+
+La web se sirve en https://juanantonio.retuertographicdesign.com (registro CNAME `juanantonio` → `retuertographic.github.io.` en el DNS de SiteGround).
+En *Settings → Pages → Custom domain* debe figurar ese mismo dominio, con *Enforce HTTPS* activado.
