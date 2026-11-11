@@ -80,15 +80,12 @@ function setupForm() {
       return;
     }
     const text = `Hola Juan Antonio, soy ${name}.${interest ? ` Me interesa: ${interest}.` : ""}\n\n${msg}`;
-    if (CONTACT.whatsapp) {
-      window.open(waLink(text), "_blank", "noopener");
-      status.textContent = "Se ha abierto WhatsApp con tu mensaje. Solo falta pulsar enviar.";
-    } else if (CONTACT.email) {
-      window.location.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent("Contacto web — " + name)}&body=${encodeURIComponent(text)}`;
-      status.textContent = "Se ha abierto tu correo con el mensaje preparado.";
-    } else {
-      status.textContent = "El formulario aún no tiene un canal configurado.";
-    }
+    // Mismo destino que el enlace «Escríbeme EMPRENDER»
+    const url = waLink(text);
+    const win = window.open(url, "_blank");
+    if (win) win.opener = null;
+    else window.location.href = url;
+    status.textContent = "Se ha abierto WhatsApp con tu mensaje. Solo falta pulsar enviar.";
   });
 }
 
