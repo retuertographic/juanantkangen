@@ -65,6 +65,21 @@ function setupHeader() {
   );
 }
 
+function setupCopyLink() {
+  document.querySelectorAll(".copy-link").forEach((btn) => {
+    const status = btn.parentElement.querySelector(".copy-status");
+    btn.addEventListener("click", () => {
+      const url = btn.dataset.url || location.href;
+      const done = () => { if (status) status.textContent = "Enlace copiado"; };
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(done, () => window.prompt("Copia el enlace:", url));
+      } else {
+        window.prompt("Copia el enlace:", url);
+      }
+    });
+  });
+}
+
 function setupForm() {
   const form = document.getElementById("contact-form");
   if (!form) return;
@@ -93,6 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
   applyContact();
   setupHeader();
   setupForm();
+  setupCopyLink();
   const y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
 });

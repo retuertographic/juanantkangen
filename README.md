@@ -23,3 +23,11 @@ Nada de promesas de salud ni de ingresos, ni datos inventados. El aviso legal de
 
 La web se sirve en https://juanantonio.retuertographicdesign.com (registro CNAME `juanantonio` → `retuertographic.github.io.` en el DNS de SiteGround).
 En *Settings → Pages → Custom domain* debe figurar ese mismo dominio, con *Enforce HTTPS* activado.
+
+## Blog
+
+Los artículos se escriben en `scripts/blog_posts.py` y se generan con:
+
+    python3 scripts/build_blog.py
+
+Crea `blog/` (listado, una página por sección y una por artículo, en `/blog/<seccion>/<slug>/`) y actualiza el bloque «Lo último en el blog» de la portada. Sube también la carpeta `blog/` generada.

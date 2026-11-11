@@ -28,7 +28,7 @@ jobs:
       - name: Preparar sitio
         run: |
           mkdir -p _site
-          cp -r index.html oportunidad.html assets .nojekyll CNAME _site/
+          cp -r index.html oportunidad.html assets blog .nojekyll CNAME _site/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
