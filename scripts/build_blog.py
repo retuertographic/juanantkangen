@@ -153,6 +153,12 @@ def card(p, prefix, excerpt=True, image=True):
         </article>"""
 
 
+def hero_photo(prefix, image, alt=""):
+    """Foto de fondo para la cabecera de una página interior."""
+    w, h = img_size(image)
+    return f'<img class="hero-photo-bg" src="{prefix}{image}" alt="{e(alt)}" width="{w}" height="{h}" fetchpriority="high">'
+
+
 def breadcrumb(items):
     parts = []
     for label, href in items:
@@ -188,7 +194,8 @@ def build_listing():
     </div>""")
     body = f"""{header(prefix)}
 <main>
-  <section class="page-hero">
+  <section class="page-hero page-hero--photo">
+    {hero_photo(prefix, "assets/photos/blog.jpg", "Escritorio luminoso con portátil, cuaderno y café")}
     <div class="wrap">
       {breadcrumb([("Inicio", "../index.html"), ("Blog", None)])}
       <h1>Blog</h1>
@@ -216,7 +223,8 @@ def build_section(s):
     cards = "\n        ".join(card(p, prefix) for p in posts)
     body = f"""{header(prefix)}
 <main>
-  <section class="page-hero">
+  <section class="page-hero page-hero--photo">
+    {hero_photo(prefix, s["image"], s.get("image_alt", ""))}
     <div class="wrap">
       {breadcrumb([("Inicio", "../../index.html"), ("Blog", "../"), (s["name"], None)])}
       <h1>{e(s["name"])}</h1>
@@ -244,13 +252,10 @@ def build_post(p):
     url = f"{SITE}/{post_path(p)}"
     share_text = f"{p['title']} {url}"
     from urllib.parse import quote
-    figure = ""
-    if p.get("image"):
-        w, h = img_size(p["image"])
-        figure = f'<figure class="post-figure"><img src="{prefix}{p["image"]}" alt="{e(p.get("image_alt", ""))}" width="{w}" height="{h}"></figure>'
     body = f"""{header(prefix)}
 <main>
-  <section class="page-hero post-hero">
+  <section class="page-hero post-hero page-hero--photo">
+    {hero_photo(prefix, p["image"], p.get("image_alt", "")) if p.get("image") else ""}
     <div class="wrap">
       {breadcrumb([("Inicio", prefix + "index.html"), ("Blog", "../../"), (sec["name"], "../"), (p["card_title"], None)])}
       <span class="bcard-cat">{e(sec["name"])}</span>
@@ -259,7 +264,6 @@ def build_post(p):
   </section>
   <article class="post">
     <div class="wrap post-wrap">
-      {figure}
       <div class="post-body">
 {p["body"].strip()}
       </div>

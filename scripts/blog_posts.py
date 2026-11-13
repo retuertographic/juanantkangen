@@ -7,26 +7,36 @@
 SECTIONS = [
     {
         "slug": "emprender-con-cabeza",
+        "image": "assets/photos/emprender-con-cabeza.jpg",
+        "image_alt": "Profesional organizando ideas con notas adhesivas en una pared",
         "name": "Emprender con cabeza",
         "intro": "Preguntas antes de empezar, cómo elegir un proyecto y errores comunes que se pueden evitar.",
     },
     {
         "slug": "desarrollo-personal",
+        "image": "assets/photos/desarrollo-personal.jpg",
+        "image_alt": "Hombre leyendo y tomando notas en una biblioteca",
         "name": "Desarrollo personal",
         "intro": "Hábitos, constancia y cómo gestionar las dudas mientras construyes algo propio.",
     },
     {
         "slug": "bienestar",
+        "image": "assets/photos/bienestar.jpg",
+        "image_alt": "Tres amigos paseando por la orilla del mar",
         "name": "Bienestar",
         "intro": "Equilibrio entre trabajo y vida. Porque tu negocio no puede ir mejor que tú.",
     },
     {
         "slug": "la-oportunidad",
+        "image": "assets/photos/la-oportunidad.jpg",
+        "image_alt": "Jarra y vaso de agua junto a una planta",
         "name": "La oportunidad",
         "intro": "Cómo funciona el proyecto con el que trabajo, para quién encaja y para quién no.",
     },
     {
         "slug": "vendehumo",
+        "image": "assets/photos/vendehumo.jpg",
+        "image_alt": "Pompas de jabón flotando en un cielo azul",
         "name": "Desmontando el vendehumo",
         "intro": "Humor amable sobre gurús, atajos y promesas fáciles.",
     },

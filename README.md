@@ -31,3 +31,9 @@ Los artículos se escriben en `scripts/blog_posts.py` y se generan con:
     python3 scripts/build_blog.py
 
 Crea `blog/` (listado, una página por sección y una por artículo, en `/blog/<seccion>/<slug>/`) y actualiza el bloque «Lo último en el blog» de la portada. Sube también la carpeta `blog/` generada.
+
+## Fotografías
+
+Las fotos son del banco de imágenes de Magnific (Freepik):
+- `assets/photos/` — cabeceras de páginas interiores, secciones del blog y bloques de la portada.
+- `assets/blog/<slug>.jpg` — una por artículo (tarjeta y cabecera del artículo).
