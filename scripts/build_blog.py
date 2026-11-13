@@ -34,6 +34,12 @@ ARROW = '<svg class="arrow" viewBox="0 0 16 16" width="14" height="14" aria-hidd
 e = html.escape
 
 
+def img_size(rel):
+    from PIL import Image
+    with Image.open(ROOT / rel) as im:
+        return im.size
+
+
 def post_path(p):
     return f"blog/{p['section']}/{p['slug']}/"
 
@@ -127,11 +133,12 @@ def cta(prefix):
 """
 
 
-def card(p, prefix, excerpt=True, image=False):
+def card(p, prefix, excerpt=True, image=True):
     sec = SECTION_BY_SLUG[p["section"]]
     img = ""
     if image and p.get("image"):
-        img = f'<div class="bcard-img"><img src="{prefix}{p["image"]}" alt="{e(p.get("image_alt", ""))}" loading="lazy" width="760" height="600"></div>'
+        w, h = img_size(p["image"])
+        img = f'<div class="bcard-img"><img src="{prefix}{p["image"]}" alt="{e(p.get("image_alt", ""))}" loading="lazy" width="{w}" height="{h}"></div>'
     exc = f'<p>{e(p["excerpt"])}</p>' if excerpt else ""
     cls = "bcard bcard--img" if img else "bcard"
     return f"""<article class="{cls}">
@@ -239,7 +246,8 @@ def build_post(p):
     from urllib.parse import quote
     figure = ""
     if p.get("image"):
-        figure = f'<figure class="post-figure"><img src="{prefix}{p["image"]}" alt="{e(p.get("image_alt", ""))}" width="760" height="600"></figure>'
+        w, h = img_size(p["image"])
+        figure = f'<figure class="post-figure"><img src="{prefix}{p["image"]}" alt="{e(p.get("image_alt", ""))}" width="{w}" height="{h}"></figure>'
     body = f"""{header(prefix)}
 <main>
   <section class="page-hero post-hero">
@@ -276,7 +284,7 @@ def build_post(p):
 
 def build_home_block():
     posts = POSTS[:HOME_CARDS]
-    cards = "\n        ".join(card(p, "", excerpt=bool(p.get("image")), image=True) for p in posts)
+    cards = "\n        ".join(card(p, "", excerpt=(i == 0)) for i, p in enumerate(posts))
     block = f"""<!-- BLOG:START (generado por scripts/build_blog.py) -->
   <section id="blog" class="home-blog">
     <div class="wrap">

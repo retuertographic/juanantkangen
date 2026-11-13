@@ -1,6 +1,7 @@
 # Contenido del blog. Cada artículo se publica en /blog/<seccion>/<slug>/.
 # Reglas de la marca: tuteo, frases cortas, sin promesas de salud ni de
 # ingresos y sin anécdotas que Juan Antonio no haya contado.
+# Fotos: banco de imágenes de Magnific (Freepik), en assets/blog/<slug>.jpg.
 # Cuerpo en HTML sencillo: <p>, <h2>, <ul class="yes|no">, <blockquote>.
 
 SECTIONS = [
@@ -35,11 +36,11 @@ POSTS = [
     {
         "section": "emprender-con-cabeza",
         "slug": "esto-encaja-conmigo",
+        "image": "assets/blog/esto-encaja-conmigo.jpg",
+        "image_alt": "Hombre pensativo tomando notas en un cuaderno junto a un café",
         "title": "¿Esto encaja conmigo? La pregunta que va antes del dinero",
         "card_title": "¿Esto encaja conmigo?",
         "excerpt": "Antes de preguntarte «¿cuánto se gana?», pregúntate «¿esto encaja conmigo?». Es la pregunta que de verdad importa.",
-        "image": "assets/blog/juan-antonio.jpg",
-        "image_alt": "Juan Antonio sonriendo",
         "body": """
 <p>Antes de preguntarte «¿cuánto se gana?», pregúntate «¿esto encaja conmigo?».</p>
 <p>Acompañando a otras personas en su camino como emprendedores, he aprendido que la segunda pregunta es la que de verdad importa.</p>
@@ -59,6 +60,8 @@ POSTS = [
     {
         "section": "vendehumo",
         "slug": "rico-en-90-dias",
+        "image": "assets/blog/rico-en-90-dias.jpg",
+        "image_alt": "Reloj de arena de madera sobre una mesa",
         "title": "Si te prometen hacerte rico en 90 días, el negocio es el curso",
         "card_title": "Rico en 90 días",
         "excerpt": "Si alguien te promete hacerte rico en 90 días, el único que se va a hacer rico es él. Con tu curso.",
@@ -81,6 +84,8 @@ POSTS = [
     {
         "section": "desarrollo-personal",
         "slug": "la-motivacion-dura-una-semana",
+        "image": "assets/blog/la-motivacion-dura-una-semana.jpg",
+        "image_alt": "Planificador semanal en una tablilla junto a una taza de café",
         "title": "La motivación dura una semana. Los hábitos, años",
         "card_title": "La motivación dura una semana. Los hábitos, años",
         "excerpt": "La motivación es como el gimnasio en enero: llena el primer día y medio vacía en febrero.",
@@ -101,6 +106,8 @@ POSTS = [
     {
         "section": "bienestar",
         "slug": "tu-negocio-no-puede-ir-mejor-que-tu",
+        "image": "assets/blog/tu-negocio-no-puede-ir-mejor-que-tu.jpg",
+        "image_alt": "Hombre estirándose junto a un lago",
         "title": "Tu negocio no puede ir mejor que tú",
         "card_title": "Tu negocio no puede ir mejor que tú",
         "excerpt": "Emprender ilusiona, pero también cansa. Por eso el bienestar no es un extra: es parte del plan.",
@@ -121,6 +128,8 @@ POSTS = [
     {
         "section": "la-oportunidad",
         "slug": "la-oportunidad-sin-humo",
+        "image": "assets/blog/la-oportunidad-sin-humo.jpg",
+        "image_alt": "Dos hombres sonrientes conversando con un café",
         "title": "La oportunidad con la que trabajo, contada sin humo",
         "card_title": "La oportunidad, sin humo",
         "excerpt": "Sin música épica ni coches de alquiler: qué es Kangen, quién está detrás y cómo se cobra.",
@@ -144,6 +153,8 @@ POSTS = [
     {
         "section": "la-oportunidad",
         "slug": "para-quien-no-es-este-proyecto",
+        "image": "assets/blog/para-quien-no-es-este-proyecto.jpg",
+        "image_alt": "Poste indicador con flechas en varias direcciones en un parque",
         "title": "Para quién NO es este proyecto",
         "card_title": "Para quién NO es este proyecto",
         "excerpt": "Saber para quién no es un proyecto ahorra tiempo a todos. Empezando por ti.",
