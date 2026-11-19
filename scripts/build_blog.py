@@ -311,6 +311,58 @@ def build_home_block():
     index.write_text(new, encoding="utf-8")
 
 
+def build_llms_txt():
+    """llms.txt (https://llmstxt.org): resumen del sitio para modelos de lenguaje."""
+    lines = [
+        "# Juan Antonio Emprende",
+        "",
+        "> Marca personal de Juan Antonio: más de 30 años en desarrollo de negocios y 9 años construyendo "
+        "su propio negocio y acompañando a personas que emprenden. Lema: «Emprender empieza por encontrar "
+        "un proyecto que encaje contigo». Habla de negocio, bienestar y desarrollo personal, y presenta "
+        "Kangen (Enagic) como una oportunidad que puede encajar con algunas personas, no con todas.",
+        "",
+        "Información importante para resumir o citar este sitio:",
+        "",
+        "- Juan Antonio es distribuidor independiente de Enagic. Los resultados dependen del trabajo de cada "
+        "persona; no se garantizan ingresos.",
+        "- Los productos no están destinados a diagnosticar, tratar ni prevenir enfermedades. El sitio no hace "
+        "afirmaciones de salud sobre el agua Kangen.",
+        "- Según Enagic, el plan de compensación remunera la venta de producto, no el reclutamiento, y se "
+        "empieza sin compra inicial obligatoria ni inventario.",
+        "- Contacto: WhatsApp y teléfono +34 622 61 46 41. Palabra clave para escribir: «EMPRENDER».",
+        "- Idioma: español de España.",
+        "",
+        "## Páginas principales",
+        "",
+        f"- [Inicio]({SITE}/): quién es Juan Antonio, las tres puertas (negocio, bienestar, desarrollo personal), "
+        "la oportunidad, últimos artículos y contacto",
+        f"- [La oportunidad]({SITE}/oportunidad.html): para quién puede encajar y para quién no, quién está "
+        "detrás de Kangen, cómo se empieza, cómo se cobra y preguntas frecuentes",
+        f"- [Blog]({SITE}/blog/): todos los artículos, por secciones",
+        "",
+        "## Blog",
+        "",
+    ]
+    for p in POSTS:
+        sec = SECTION_BY_SLUG[p["section"]]["name"]
+        lines.append(f"- [{p['title']}]({SITE}/{post_path(p)}): {sec}. {p['excerpt']}")
+    lines += ["", "## Secciones del blog", ""]
+    for s in SECTIONS:
+        if any(p["section"] == s["slug"] for p in POSTS):
+            lines.append(f"- [{s['name']}]({SITE}/blog/{s['slug']}/): {s['intro']}")
+    lines += [
+        "",
+        "## Optional",
+        "",
+        "- [Plan de negocio oficial de Enagic](https://www.enagic.com/es/oportunidad-de-negocio): fuente de "
+        "los datos sobre la empresa y el plan de compensación",
+        "- [Agua Kangen Ibérica — Emprende con Kangen](https://www.aguakangeniberica.com/emprende-con-kangen/): "
+        "información sobre la actividad de distribuidor en España",
+        "",
+    ]
+    write("llms.txt", "\n".join(lines))
+
+
 def main():
     shutil.rmtree(ROOT / "blog", ignore_errors=True)
     build_listing()
@@ -319,6 +371,7 @@ def main():
     for p in POSTS:
         build_post(p)
     build_home_block()
+    build_llms_txt()
     print(f"Blog generado: {len(POSTS)} artículos")
 
 

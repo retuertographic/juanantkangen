@@ -30,7 +30,7 @@ Los artículos se escriben en `scripts/blog_posts.py` y se generan con:
 
     python3 scripts/build_blog.py
 
-Crea `blog/` (listado, una página por sección y una por artículo, en `/blog/<seccion>/<slug>/`) y actualiza el bloque «Lo último en el blog» de la portada. Sube también la carpeta `blog/` generada.
+Crea `blog/` (listado, una página por sección y una por artículo, en `/blog/<seccion>/<slug>/`), actualiza el bloque «Lo último en el blog» de la portada y regenera `llms.txt` (resumen del sitio para modelos de lenguaje, https://llmstxt.org). Sube también la carpeta `blog/` generada.
 
 ## Fotografías
 
